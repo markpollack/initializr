@@ -57,6 +57,16 @@ public class ProjectDescription {
 
 	private String baseDirectory;
 
+	private Map<String, String[]> formParameters;
+
+	public Map<String, String[]> getFormParameters() {
+		return this.formParameters;
+	}
+
+	public void setFormParameters(Map<String, String[]> formParameters) {
+		this.formParameters = formParameters;
+	}
+
 	/**
 	 * Resolve the state of this instance to a {@link ResolvedProjectDescription}.
 	 * @return an immutable description.

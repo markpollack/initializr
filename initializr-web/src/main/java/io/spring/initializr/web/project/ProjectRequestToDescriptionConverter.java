@@ -61,6 +61,7 @@ public class ProjectRequestToDescriptionConverter {
 		getResolvedDependencies(request, springBootVersion, metadata)
 				.forEach((dependency) -> description.addDependency(dependency.getId(),
 						MetadataBuildItemMapper.toDependency(dependency)));
+		description.setFormParameters(request.getFormParameters());
 		return description;
 	}
 

@@ -104,9 +104,22 @@ public class MainController extends AbstractInitializrController {
 	}
 
 	@ModelAttribute
-	public ProjectRequest projectRequest(@RequestHeader Map<String, String> headers) {
+	public ProjectRequest projectRequest(@RequestHeader Map<String, String> headers,
+			HttpServletRequest httpServletRequest) {
+		Map<String, String[]> parameterMap = httpServletRequest.getParameterMap();
+		System.out.println("*********************************");
+		System.out.println("*********************************");
+		System.out.println("*********************************");
+		System.out.println("*********************************");
+		for (Map.Entry<String, String[]> stringEntry : parameterMap.entrySet()) {
+			System.out.println("key = " + stringEntry.getKey() + ", value = "
+					+ stringEntry.getValue());
+		}
 		WebProjectRequest request = new WebProjectRequest();
+		// Parameters are really header!
 		request.getParameters().putAll(headers);
+
+		request.setFormParameters(parameterMap);
 		request.initialize(this.metadataProvider.get());
 		return request;
 	}

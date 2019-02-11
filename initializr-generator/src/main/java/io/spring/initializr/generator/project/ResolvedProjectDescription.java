@@ -59,6 +59,8 @@ public final class ResolvedProjectDescription {
 
 	private final String baseDirectory;
 
+	private Map<String, String[]> formParameters;
+
 	public ResolvedProjectDescription(ProjectDescription description) {
 		this.platformVersion = description.getPlatformVersion();
 		this.buildSystem = description.getBuildSystem();
@@ -74,6 +76,11 @@ public final class ResolvedProjectDescription {
 		Map<String, Dependency> requestedDependencies = new LinkedHashMap<>(
 				description.getRequestedDependencies());
 		this.requestedDependencies = Collections.unmodifiableMap(requestedDependencies);
+		this.formParameters = description.getFormParameters();
+	}
+
+	public Map<String, String[]> getFormParameters() {
+		return this.formParameters;
 	}
 
 	private String getPackageName(ProjectDescription description) {

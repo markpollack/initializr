@@ -32,12 +32,22 @@ public class WebProjectRequest extends ProjectRequest {
 
 	private final Map<String, Object> parameters = new LinkedHashMap<>();
 
+	private Map<String, String[]> formParameters;
+
 	/**
 	 * Return the additional parameters that can be used to further identify the request.
 	 * @return the parameters
 	 */
 	public Map<String, Object> getParameters() {
 		return this.parameters;
+	}
+
+	public void setFormParameters(Map<String, String[]> formParameters) {
+		this.formParameters = formParameters;
+	}
+
+	public Map<String, String[]> getFormParameters() {
+		return this.formParameters;
 	}
 
 	/**

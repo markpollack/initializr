@@ -18,6 +18,7 @@ package io.spring.initializr.web.project;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.util.StringUtils;
 
@@ -58,6 +59,16 @@ public class ProjectRequest {
 
 	// The base directory to create in the archive - no baseDir by default
 	private String baseDir;
+
+	private Map<String, String[]> formParameters;
+
+	public Map<String, String[]> getFormParameters() {
+		return this.formParameters;
+	}
+
+	public void setFormParameters(Map<String, String[]> formParameters) {
+		this.formParameters = formParameters;
+	}
 
 	public List<String> getStyle() {
 		return this.style;
